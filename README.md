@@ -19,6 +19,50 @@ A custom-built model simulates the thermostat's response to environmental and sc
 
 For faster simulations, the predictive model was ported from **Python** to **C++** using the **Boost** library. This C++ version is about 10 times faster than the original Python implementation, significantly speeding up the simulation process for all seven days' schedules, especially during server startup.
 
+## **Design Features**
+
+### **1. Event-Driven Architecture**
+- Implements a centralized global queue for inter-component communication.
+- Messages trigger predefined actions through a robust case-handling mechanism.
+- Decouples components for improved modularity and extensibility.
+
+### **2. Interrupt-Driven User Interface**
+- User inputs, such as button presses or rotary encoder interactions, are handled via hardware interrupts.
+- Ensures responsive and reliable input handling without disrupting core system tasks.
+
+### **3. Periodic Sensor Monitoring**
+- Configurable timers trigger sensor readings at intervals ranging from 5 seconds to 3 minutes.
+- Enables consistent monitoring of temperature and motion for optimal decision-making.
+
+### **4. Intelligent HVAC Control**
+- Activates or deactivates the HVAC based on:
+  - Current environmental conditions.
+  - User-defined schedules.
+  - Baseline temperature thresholds.
+- Dynamically switches to a baseline temperature mode during prolonged inactivity, optimizing energy usage.
+
+### **5. User Customization**
+- Users can configure key parameters, including:
+  - Baseline temperature.
+  - Motion detection timeout.
+  - Schedule settings.
+- Configurations are accessible through an intuitive OLED-based menu.
+
+---
+
+## **System Architecture**
+
+### **Main Event Loop**
+The main event loop serves as the control center, processing messages from the global queue. This approach ensures seamless integration of system components and efficient handling of user inputs, sensor data, and control logic.
+
+### **Interrupt-Driven Design**
+Interrupt Service Routines (ISRs) handle user inputs in real-time, enqueuing messages for processing by the main loop. This decoupled design guarantees system responsiveness without interrupting other tasks.
+
+### **Timer-Driven Events**
+Timers manage sensor polling and furnace evaluation at predefined intervals, providing a balance between accuracy and system efficiency.
+
+### **Dynamic Energy Optimization**
+The system employs motion detection and scheduling to dynamically adjust heating requirements, reducing energy consumption during periods of inactivity.
 ## API Endpoints
 
 The system includes several API endpoints to access data:
