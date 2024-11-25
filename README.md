@@ -1,7 +1,7 @@
 # Smart Thermostat-
 ## Overview
 
-The project is a smart thermostat system developed using in **C++** that leverages embedded AI to provide advanced control, monitoring, and energy efficiency features. The system allows users to set a unique heating or cooling schedule for each day of the week, automatically adjusting the temperature based on occupancy, and predicts your HVAC system runtime using local weather data. All captured data is stored in an **InfluxDB** running on a **Raspberry Pi 4**, enabling easy access and analysis via a **Node-Red** interface.
+The project is a smart thermostat system developed in **C++** that leverages embedded AI to provide advanced control, monitoring, and energy efficiency features. The system allows users to set a unique heating or cooling schedule for each day of the week, automatically adjusting the temperature based on occupancy, and predicts your HVAC system runtime using local weather data. All captured data is stored in an **InfluxDB** running on a **Raspberry Pi 4**, enabling easy access and analysis via a **Node-Red** interface.
 
 ## Key Features:
 - **Dynamic Scheduling**: The thermostat allows users to set a different heating schedule for each day of the week, ensuring flexibility to match daily routines.
